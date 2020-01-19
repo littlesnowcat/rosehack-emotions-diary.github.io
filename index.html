@@ -18,11 +18,67 @@
     </textarea>
     <br>
     <input type="submit" value="Submit">
-
+    <p id="reply"></p>
 
   </body>
   <script>
-    document.getElementById('Entry').style.height="200px";
+    /**
+* What the hell am i doing
+*
+* 
+*/
+
+
+
+function identifySentiment() {
+  var NEGATIVE_CUTOFF = -0.2;   //  Thresholds for sentiments
+  var POSITIVE_CUTOFF = 0.2;
+  
+  var selection = DocumentApp.getActiveDocument().getSelection();
+  if (selection) {
+    var string = document.getElementById("Entry").value;
+    
+    var sentiment = retrieveSentiment(string);
+function retrieveSentiment (line) {
+  var apiKey = "AIzaSyAkaTu4_qAsmAU_f4dSM1QkoMQ800s9QEs";
+  var apiEndpoint = 
+'https://language.googleapis.com/v1/documents:analyzeSentiment?key=' 
++ apiKey;
+
+  //  Create a structure with the text, its language, its type,
+  //  and its encoding
+  var docDetails = {
+    language: 'en-us',
+    type: 'PLAIN_TEXT',
+    content: line
+  };
+  
+  var nlData = {
+    document: docDetails,
+    encodingType: 'UTF8'
+  };
+  
+  //  Package all of the options and the data together for the call
+  var nlOptions = {
+    method : 'post',
+    contentType: 'application/json',
+    payload : JSON.stringify(nlData)
+  };
+  
+  //  And make the call
+  var response = UrlFetchApp.fetch(apiEndpoint, nlOptions);
+  
+  var data = JSON.parse(response);
+  
+  var sentiment = 0.0;
+  //  Ensure all pieces were in the returned value
+  if (data && data.documentSentiment 
+          && data.documentSentiment.score){
+     sentiment = data.documentSentiment.score;
+  }
+  
+  document.getElementById("reply").innerHTML = sentiment;
+}
 
   </script>
 </html>
