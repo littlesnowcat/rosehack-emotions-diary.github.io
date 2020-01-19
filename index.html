@@ -13,6 +13,7 @@
     --->
     Sentinmental Analyzer Entry:
     <br>
+    
     <textarea id = "Entry" style = "width:80%;">
 
     </textarea>
@@ -52,11 +53,7 @@ function retrieveSentiment (line) {
 + apiKey;
 
   //  Package all of the options and the data together for the call
-  var nlOptions = {
-    method : 'post',
-    contentType: 'application/json',
-    payload : JSON.stringify(nlData)
-  };
+  var nlOptions = document.getElementById("Entry").value;
   
   //  And make the call
   var response = UrlFetchApp.fetch(apiEndpoint, nlOptions);
