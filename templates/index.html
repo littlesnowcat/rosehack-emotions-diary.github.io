@@ -12,14 +12,14 @@
     <!---
     <input type="text" id ="Entry" name="Entry:" value="Replace Here" style="height:200px;font-size:14pt;">
     --->
-    <div class = "center">
-      Sentinmental Analyzer Entry:
+    <div class = "center" style="font-size:50px;">
+      Sentimental Analyzer Entry:
     </div>
     <br>
     <center>
       <form>
 
-        <textarea id = "Entry" style = "width:80%;">
+        <textarea id = "Entry" style = "width:80%;height:100px;">
 
         </textarea>
         <br>
@@ -27,11 +27,11 @@
 <!--button-->
     </form>
     </center>
-        
+
     <center>
     <p id="reply"></p>
     </center>
-    
+
     <br>
     <center>
 
@@ -61,7 +61,7 @@
     /**
 * What the hell am i doing
 *
-* 
+*
 */
 
 
@@ -72,7 +72,7 @@ function identifySentiment() {
   var emotion = httpGet("/sentiment?string="+string);
   document.getElementById("reply").innerHTML = emotion;
 }
-  
+
 function httpGet(theUrl)
 {
     var xmlHttp = new XMLHttpRequest();
