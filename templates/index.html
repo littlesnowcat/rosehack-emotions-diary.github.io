@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../static/css/emotions-diary-style.css">
+    <title>
+      Emotional Diary
+    </title>
+  </head>
+  <body>
+    <!---
+    <input type="text" id ="Entry" name="Entry:" value="Replace Here" style="height:200px;font-size:14pt;">
+    --->
+    <div class = "center">
+      Sentinmental Analyzer Entry:
+    </div>
+    <br>
+    <center>
+      <form>
+
+        <textarea id = "Entry" style = "width:80%;">
+
+        </textarea>
+        <br>
+    <input type="button" value="Submit" onclick="identifySentiment()">
+<!--button-->
+    </form>
+    </center>
+        
+    <center>
+    <p id="reply"></p>
+    </center>
+    
+    <br>
+    <center>
+
+
+      <br>
+      <img src="https://cdn.24.co.za/files/Cms/General/d/3975/2d37607e47904b088f051249d27bed10.jpg">
+      <br>
+      <img src="https://starecat.com/content/wp-content/uploads/cute-cat-hey-i-think-i-love-you-hey-you-dont-scroll-away-im-talking-to-you.jpg">
+      <br>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAJoSCMyouUqvWrVlYWRhnOykW0CcocqCRtzS9qHpeVG0ArR7GjA&s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKpCfUzfgP9AwDH4wyRqKQcE_8HKNWBOfL6NpxayiismPIbPqLXw&s">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQUysRAruw7wEkbQqoX9fI3JV7Ke56wYmYWSpvEhEIKo1X4rL9N&s">
+      <br>
+      <img src="https://www.baldivisvet.com.au/wp-content/uploads/2017/10/cats-cute-cat-licking-paw1920.jpg" style = "width:500px">
+      <img src="https://i.ytimg.com/vi/DgdMV3IczYY/hqdefault.jpg">
+      <br>
+      <img src="https://live.staticflickr.com/7145/13970838266_f4a2e36f04_b.jpg">
+      <br>
+      <img src="https://imgix.bustle.com/uploads/image/2018/10/18/4e1afb93-afba-49fe-96e6-b2bbd1ea0125-safe-toys-for-kittens.jpg?w=970&h=546&fit=crop&crop=faces&auto=format&q=70">
+      <br>
+      <br>
+
+    </center>
+
+  </body>
+  <script>
+    /**
+* What the hell am i doing
+*
+* 
+*/
+
+
+
+function identifySentiment() {
+  var string = document.getElementById("Entry").value;
+
+  var emotion = httpGet("/sentiment?string="+string);
+  document.getElementById("reply").innerHTML = emotion;
+}
+  
+function httpGet(theUrl)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    return xmlHttp.responseText;
+}
+
+  </script>
+</html>
