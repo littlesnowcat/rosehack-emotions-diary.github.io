@@ -43,6 +43,7 @@ function identifySentiment() {
   if (sentiment >= POSITIVE_CUTOFF) {
     emotion = "happy";
   }
+  document.getElementById("reply").innerHTML = emotion;
 }
 function retrieveSentiment (line) {
   var apiKey = "AIzaSyAkaTu4_qAsmAU_f4dSM1QkoMQ800s9QEs";
@@ -70,7 +71,6 @@ function retrieveSentiment (line) {
   }
   
   return sentiment;
-  document.getElementById("reply").innerHTML = emotion;
 }
 
   </script>
