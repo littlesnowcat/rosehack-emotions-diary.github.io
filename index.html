@@ -36,7 +36,7 @@ function identifySentiment() {
   var string = document.getElementById("Entry").value;
 
   var sentiment = retrieveSentiment(string);
-  var color = NEUTRAL_COLOR;
+  var emotion = "neutral";
   if (sentiment <= NEGATIVE_CUTOFF) {
     emotion = "sad";
   }
