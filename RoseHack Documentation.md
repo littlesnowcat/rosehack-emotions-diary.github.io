@@ -1,5 +1,5 @@
-﻿##Emotions Diary
-##Project:
+﻿# H1 Emotions Diary
+# H2 Project:
 **Intro:**
 First and foremost, 3 of us are high school students, and this was the first hackathon for the majority of us. We came in extremely inexperienced and could not accomplish much of this without the guidance of our mentors. After brainstorming, and hearing about the GCP prize of course, we wanted to somehow implement mental health with artificial intelligence, a website, lots of cats, and the offered $50 of free GCP credit to create a smart diary that could uplift others based on the sentiment value derived from a Natural Language Processing analysis of their diary entry.
 
@@ -12,7 +12,7 @@ We wanted the landing page to feel welcoming since we want all of our users to f
 Since we utilized Google Cloud’s pre-trained Natural Language Processing Sentiment Analysis Model, we actually did not code the backend ourselves. We would have required thousands of labeled sample texts to train our model, and we didn’t have the resources or the time to create such a hefty database ourselves. Instead, we had to integrate Google’s pre-trained model into our HTML page front-end. We used Flask and Python to do so. We took the inputted data from the text field as a string saved to a variable. Google’s machine learning model was then called to analyze that string variable and return a sentiment score ranging from -1 to 1, with -1 being the most negative and 1 being the most positive. Based on this sentiment score, an appropriate response was returned to the user to either uplift them, comfort them, or encourage them.
 
 
-##Significant Challenges/Areas of Growth:
+# H2 Significant Challenges/Areas of Growth:
 **Linking the front and back end:**
 This was by far the biggest challenge of the project. We originally attempted to do this all in JavaScript before realizing that Google did not provide a way to integrate its machine learning model on the client-side. We then had to scrap all of our code and start over, using Python and learning how to use Flask to deploy our Python code in a web app. Even then, we struggled a lot with small errors that would come up during the interchange between the front and back end.
 **Collaboration:**
